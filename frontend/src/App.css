@@ -1,0 +1,633 @@
+/* App.css */
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  background-color: #fafafa;
+}
+
+.filters{
+  background-color: grey;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0%;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 30px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: semibold;
+}
+
+.buttons button {
+  margin-left: 16px;
+  /* padding: 8px 16px; */
+  background-color: #0095f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.post-card {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.post-card:hover {
+  transform: scale(1.02);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-title {
+  height: 5vh;
+  font-size: 25px;
+  font-weight: bold;
+  overflow-y: hidden;
+  line-height: 5vh;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.post-author {
+  color: #8e8e8e;
+}
+
+.post-content {
+  margin-top: 10px;
+  color: #262626;
+  height: 28vh;
+  overflow-y: hidden;
+}
+
+.post-comments {
+  margin-top: 10px;
+  color: #8e8e8e;
+}
+
+/* PostModal.css */
+
+.post-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px; /* Adjust padding as needed */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Set the background color of the popup to white */
+  z-index: 999; /* Ensure the popup is above other elements */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-title,
+.modal-author {
+  color: #262626; /* Set the text color to a dark color */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-content-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content-box {
+  flex: 1;
+  padding: 16px;
+  background-color: white; /* Set the background color of the content box to white */
+  border-radius: 8px;
+ /* Optional: Add a box shadow */
+  overflow: hidden;
+}
+
+.modal-comments-box {
+  width: 300px;
+  flex-shrink: 0; /* Ensure the comments box doesn't shrink */
+  padding: 16px;
+  background-color: black; /* Set the background color of the comment box to black */
+  color: black;
+  border-radius: 8px;
+ /* Optional: Add a box shadow */
+  overflow-y: auto;
+}
+
+.add-comment {
+  /* margin-top: 16px; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.add-comment input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.add-comment button {
+  padding: 8px;
+  /* background-color: #0095f6;  */
+  background-color: black; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-modal {
+  margin-top: 20px;
+  /* padding: 8px 16px; */
+  /* background-color: #0095f6; */
+  background-color: black;
+  color: white;
+  border: 1px solid #0095f6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background-color: white;
+  color: #0095f6;
+}
+
+/* Comment.css */
+
+.comment {
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-likes-dislikes button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.comment-content {
+  margin-top: 10px;
+  color: #262626;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+/* Add this to your CSS styles or update existing styles */
+
+.comment-actions button {
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.comment-actions button:hover {
+  text-decoration: underline;
+}
+/* Add your existing styles here */
+
+/* Additional styles for the modal button */
+.buttons button {
+  margin-left: 16px;
+  /* padding: 8px 16px; */
+  background-color: #0095f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Additional styles for the post container */
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.post-card {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: scale(1.02);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.post-author {
+  color: #8e8e8e;
+}
+
+.post-content {
+  margin-top: 10px;
+  color: #262626;
+}
+
+.post-comments {
+  margin-top: 10px;
+  color: #8e8e8e;
+}
+
+/* Additional styles for the modal button */
+.buttons button {
+  margin-left: 16px;
+  /* padding: 8px 16px; */
+  background-color: #0095f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Add your existing styles here */
+/* Add your existing styles here */
+
+
+.abc:hover{
+  background-color: #1ab14f !important; 
+}
+.abcd:hover{
+  color: #1ab14f !important; 
+}
+
+.post-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  z-index: 999;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-title,
+.modal-author {
+  color: #262626;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-content-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content-box {
+  flex: 1;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.modal-comments-box {
+  width: 300px;
+  flex-shrink: 0;
+  padding: 16px;
+  background-color: black;
+  color: black;
+  border-radius: 8px;
+
+  overflow-y: auto;
+}
+
+.add-comment {
+  margin-bottom: 16px;
+  /* margin-top: 16px; */
+  display: flex;
+  align-items: center;
+}
+
+.add-comment input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.add-comment button {
+  padding: 8px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-modal {
+  margin-top: 20px;
+  /* padding: 8px 16px; */
+  background-color: #0095f6;
+  color: white;
+  border: 1px solid #0095f6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background-color: white;
+  color: #0095f6;
+}
+
+.comment {
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-likes-dislikes button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.comment-content {
+  margin-top: 10px;
+  color: #262626;
+}
+
+.cmmts{
+  overflow-y: scroll;
+  height: 90%;
+}
+.btn:focus {
+  outline: none;
+}
+
+.green{
+  color: green;
+}
+
+.red{
+  color: red;
+}
+#green, #red{
+  margin-right:1vh;
+}
+.num{
+  margin-right:1vh;
+}
+.xyz{
+  padding-top: 10px;
+}
+.cmmts{
+  height: 85%;
+}
+.modal-comments-box{
+  width: 300px;
+  flex-shrink: 0;
+  padding-top: 16px;
+  background-color: black;
+  color: black;
+  border-radius: 8px;
+
+  overflow-y: auto;
+  padding-bottom: 0%;
+
+}
+.xyz{
+  border-top: solid 1px white;
+  padding-top:6%;
+}
+.post-modal{
+  top: 10vh;
+  left: 6vw;
+  width: 88%;
+  height: 88%;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  z-index: 999;
+  position: absolute;
+}
+.modal-content-box{
+  flex: 1 1;
+  padding: 16px;
+  background-color: #90caf9;
+  border-radius: 8px;
+
+  overflow: hidden;
+  color: black;
+}
+.post-modal{
+  top: 10vh;
+  left: 6vw;
+  width: 88%;
+  height: 88%;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #90caf9; */
+  color: #ffffff;
+  background-color: #1b1717;
+  z-index: 999;
+  position: absolute;
+  border-radius: 36px;
+
+}
+.time{
+  position: relative;
+  right:-50%;
+}
+.btn1{
+  padding: 5%;
+}
+.num{
+  padding-top: 5%;
+}
+
+.like-outer{
+  width: 250px;
+  float: left;
+}
+.like-area{
+  width:100%;
+  float: left;
+}
+.like-area ul{
+  list-style: none;
+  margin: 0px
+}
+.like-area ul li{
+  display: inline-block;
+  margin: 0px 5px 0px 0px;
+}
+.like-area ul li a{
+  width: 100%;
+  padding: 10px;
+  font-size: 25px;
+  color: #000;
+  cursor: pointer;
+  float: left;
+  -webkit-user-select: none; /* Safari */      
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+.like-no{
+  font-size: 20px;
+}
+.like-area i{
+  float: left;
+}
+.like-area .fas{
+  font-size: 0px;
+}
+.like-active .fas{
+ font-size: 25px;
+}
+.like-active .far{
+ font-size: 0px;
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  background-color: #fafafa;
+}
+
+
+.app{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
